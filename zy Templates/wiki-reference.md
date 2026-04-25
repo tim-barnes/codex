@@ -1,21 +1,34 @@
 ---
 type: reference
 created: {{date:YYYY-MM-DD}}
+tags: [topic tags]
+confidence: [low/medium/high]
 ---
 
 # {{title}}
 
 ## Summary
 
-> One paragraph in your own words.
+{{One paragraph in your own words}}
 
-## Key concepts
+## Key Concepts
 
-## When to use / when not to use
+- **{{concept}}:** {{definition}}
+- **{{concept}}:** {{definition}}
+
+## When to Use / When Not to Use
+
+**Use when:** {{applicability and boundaries}}
+
+**Don't use when:** {{limits and edge cases}}
 
 ## Related
 
-- [[]] (related reference note)
-- [[]] (related software entity)
+- [[reference-name]]
+- [[software-name]]
+- [[domain-name]]
 
 ## Sources
+
+- {{source 1}}
+- {{source 2}}
