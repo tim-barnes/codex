@@ -8,7 +8,7 @@
 
 ## Purpose
 
-Update all eight template files to adopt gbrain's comprehensive schema for metadata, structure, and conventions. The goal is completeness: each template type includes all relevant gbrain fields and structural patterns appropriate to its entity type.
+Update all template files (nine total) to adopt gbrain's comprehensive schema for metadata, structure, and conventions. The goal is completeness: each template type includes all relevant gbrain fields and structural patterns appropriate to its entity type.
 
 ---
 
@@ -186,7 +186,44 @@ YYYY-MM-DD | Source — [When you learned this / How understanding evolved / App
 
 ---
 
-### 6. wiki-reference.md — Lightweight Concept Note (No Timeline)
+### 6. idea.md — Full Gbrain Idea Page
+
+**Purpose**: Capture unstarted possibilities with their potential impact, prerequisites, and how thinking evolves.
+
+**Frontmatter:**
+```yaml
+type: idea
+status: [nascent/developing/ready/started/abandoned]
+tags: [domain tags, project areas]
+potential_impact: [low/medium/high]
+maturity: [rough/conceptual/detailed]
+confidence: [low/medium/high]
+created: [ISO date]
+last_reviewed: [ISO date]
+```
+
+**Compiled Truth Sections:**
+- **Concept** — What is the core idea? One or two sentences.
+- **Problem It Solves** — What gap or opportunity does this address?
+- **Potential Impact** — Why does this matter? What could it enable?
+- **Key Assumptions** — What needs to be true for this to work?
+- **Prerequisites** — What must happen first? What blockers exist?
+- **Related Ideas** — Other ideas this connects to, builds on, or conflicts with
+- **Rough Approach** — Sketch of how you might tackle this (if thinking has progressed that far)
+- **Open Threads** — Unresolved questions, validation needed, research gaps
+- **Assessment** — Your current confidence level and reasoning (date this)
+
+**Timeline**:
+```
+## Timeline
+
+YYYY-MM-DD | Source — [Idea conceived / New insight / Matured thinking / Validation / Status shift]
+```
+Append-only entries tracking how the idea evolved, what you learned, and confidence shifts.
+
+---
+
+### 7. wiki-reference.md — Lightweight Concept Note (No Timeline)
 
 **Purpose**: Static reference notes for concepts you return to frequently.
 
@@ -209,7 +246,7 @@ confidence: [low/medium/high]
 
 ---
 
-### 7. software.md — Minimal Enhancement (No Timeline by Default)
+### 8. software.md — Minimal Enhancement (No Timeline by Default)
 
 **Purpose**: Operational knowledge about tools and libraries in your specific context.
 
@@ -234,7 +271,7 @@ confidence: [low/medium/high]
 
 ---
 
-### 8. journal-daily.md — Lightweight Scratch Notes (No Timeline)
+### 9. journal-daily.md — Lightweight Scratch Notes (No Timeline)
 
 **Purpose**: Daily or weekly scratch thinking; a staging area before content finds a permanent home.
 
@@ -283,7 +320,8 @@ These templates are for *new notes going forward*. Existing notes in the vault a
 ### Implementation Notes
 
 - File locations remain unchanged (templates stay in `zy Templates/`).
-- Folder structure (10 Projects, 20 Domains, 30 Entities, 40 Wiki, 50 Journal) remains unchanged.
+- New `idea.md` template added to the collection.
+- Folder structure (10 Ideas, 20 Projects, 30 Domains, 40 Entities, 50 Wiki, 60 Journal) remains unchanged.
 - Templates use `{{placeholder}}` syntax for variable fields (title, date, etc.).
 - Backlinks and wiki-style links (`[[note-name]]`) are encouraged in all templates where relevant.
 
@@ -291,8 +329,8 @@ These templates are for *new notes going forward*. Existing notes in the vault a
 
 ## What Success Looks Like
 
-✓ Each template includes all relevant gbrain fields and structure for its entity type  
-✓ Core entities (people, projects, teams, domains, concepts) have two-layer format with timeline  
+✓ Nine templates cover all entity types: person, team, project, domain, idea, wiki-learning, wiki-reference, software, journal  
+✓ Core entities (people, projects, teams, domains, ideas, concepts) have two-layer format with compiled truth and append-only timeline  
 ✓ Source and confidence tracking conventions are consistent across templates  
 ✓ Lightweight templates (journal, reference, software) remain simple and practical  
 ✓ Existing folder structure and note organization continue to work unchanged  
