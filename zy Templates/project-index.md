@@ -21,6 +21,8 @@ confidence: [low/medium/high]
 
 **Confidence in timeline:** {{high/medium/low}}
 
+*Note: This is about timeline confidence. See frontmatter confidence for overall information confidence.*
+
 ## Key Outcomes & Metrics
 
 - {{outcome/metric and how success is measured}}
@@ -53,6 +55,5 @@ confidence: [low/medium/high]
 
 ## Timeline
 
-2026-04-20 | observed — Project started
-
+2026-04-20 | observed — Project kickoff completed
 {{YYYY-MM-DD | Source — Decision made / Milestone reached / Status shift / Blocker resolved}}
