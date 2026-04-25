@@ -12,9 +12,16 @@ last_enriched: {{date:YYYY-MM-DD}}
 
 {{What the team does, why it exists}}
 
+## Team Contact
+
+- **Slack channel:** {{#channel-name}}
+- **Team email:** {{team-email}}
+- **Documentation:** {{link to team wiki or docs}}
+- **Calendar:** {{link to team calendar}}
+
 ## Key Contacts
 
-- **Lead:** [[{{name}}]]
+- **Lead:** [[]]
 - **Key members:** [[]], [[]]
 - **Stakeholders:** [[]], [[]]
 
@@ -22,8 +29,7 @@ last_enriched: {{date:YYYY-MM-DD}}
 
 {{Systems or domains this team owns or maintains}}
 
-- [[system-name]]
-- [[domain-name]]
+See Also: [[related-system]]
 
 ## Working Agreements
 
@@ -59,5 +65,7 @@ last_enriched: {{date:YYYY-MM-DD}}
 ---
 
 ## Timeline
+
+2026-04-20 | observed — Added new engineer to team
 
 {{YYYY-MM-DD | Source — Staffing change / Charter update / Key decision}}
