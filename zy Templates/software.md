@@ -1,20 +1,39 @@
 ---
 type: software
+category: [database/framework/tool/library/other]
+tags: [what it does, domains it relates to]
+version_tracked: [true/false]
+last_updated: {{date:YYYY-MM-DD}}
+confidence: [low/medium/high]
 ---
 
 # {{title}}
 
-**Version:** 
-**Used in:** 
+## What It Is
 
-## What it does (in our context)
+{{Basic description and purpose}}
 
-## Configuration & setup
+## Why We Use It
 
-## Operational notes
+{{Your specific rationale for this tool}}
 
-## Known issues
+**Alternatives considered:** {{other tools you looked at and why you chose this one}}
 
-## Links
+## Configuration & Setup
 
-- [[]] (relevant Wiki reference note)
+{{How it's configured or deployed in your context}}
+
+- {{key config or setup detail}}
+- {{important setting}}
+
+## Known Issues
+
+{{Gotchas, limitations, or problems you've hit}}
+
+- {{issue or limitation}}
+- {{workaround, if applicable}}
+
+## Related Tools
+
+- [[alternative-tool]]
+- [[complementary-tool]]
