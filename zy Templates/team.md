@@ -1,17 +1,63 @@
 ---
 type: team
+tags: [domain tags]
+company: [parent organization]
+confidence: [low/medium/high]
+last_enriched: {{date:YYYY-MM-DD}}
 ---
 
 # {{title}}
 
-**Organisation:** 
-**Systems owned:** 
+## Purpose & Charter
 
-**Members:**
-- [[]]
+{{What the team does, why it exists}}
 
-## Responsibilities
+## Key Contacts
 
-## How to work with this team
+- **Lead:** [[{{name}}]]
+- **Key members:** [[]], [[]]
+- **Stakeholders:** [[]], [[]]
 
-## Working agreements
+## System Ownership
+
+{{Systems or domains this team owns or maintains}}
+
+- [[system-name]]
+- [[domain-name]]
+
+## Working Agreements
+
+{{Norms, decision-making style, communication patterns}}
+
+## Composition
+
+**Current members:**
+- [[person-name]]
+- [[person-name]]
+- [[person-name]]
+
+## Recent Changes
+
+{{Structural shifts, staffing changes, charter updates}}
+
+## Assessment
+
+**Team health:** {{overall health status}}
+
+**Capability gaps:** {{areas needing development}}
+
+**Growth areas:** {{opportunities for improvement}}
+
+*Assessment dated: {{date}}*
+
+## Open Threads
+
+- {{staffing questions}}
+- {{process improvements}}
+- {{capability gaps}}
+
+---
+
+## Timeline
+
+{{YYYY-MM-DD | Source — Staffing change / Charter update / Key decision}}
