@@ -13,17 +13,17 @@
 ## Task 1: Create Main Skill Skeleton
 
 **Files:**
-- Create: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Create: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Create skill directory**
 
 ```bash
-mkdir -p ~/.claude/plugins/user/pdq-ingest-notes
+mkdir -p .claude/skills/pdq-ingest-notes
 ```
 
 - [ ] **Step 2: Write SKILL.md header and metadata**
 
-Create `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`:
+Create `.claude/skills/pdq-ingest-notes/SKILL.md`:
 
 ```markdown
 ---
@@ -58,7 +58,7 @@ Run this skill when you have files in `00 Inbox/` that need processing. The skil
 - [ ] **Step 3: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: create pdq:ingest-notes skill skeleton"
 ```
@@ -68,7 +68,7 @@ git commit -m "feat: create pdq:ingest-notes skill skeleton"
 ## Task 2: Implement Main Skill Workflow
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Add initialization phase**
 
@@ -200,7 +200,7 @@ Changes are not committed to git. Review and commit manually.
 - [ ] **Step 4: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: implement main skill workflow and user prompts"
 ```
@@ -210,17 +210,17 @@ git commit -m "feat: implement main skill workflow and user prompts"
 ## Task 3: Create File Processor Subagent Skeleton
 
 **Files:**
-- Create: `~/.claude/plugins/user/pdq-file-processor/SKILL.md`
+- Create: `.claude/skills/pdq-file-processor/SKILL.md`
 
 - [ ] **Step 1: Create subagent directory**
 
 ```bash
-mkdir -p ~/.claude/plugins/user/pdq-file-processor
+mkdir -p .claude/skills/pdq-file-processor
 ```
 
 - [ ] **Step 2: Write SKILL.md header**
 
-Create `~/.claude/plugins/user/pdq-file-processor/SKILL.md`:
+Create `.claude/skills/pdq-file-processor/SKILL.md`:
 
 ```markdown
 ---
@@ -255,7 +255,7 @@ Structured proposal with:
 - [ ] **Step 3: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-file-processor
+cd .claude/skills/pdq-file-processor
 git add SKILL.md
 git commit -m "feat: create pdq:file-processor subagent skeleton"
 ```
@@ -265,7 +265,7 @@ git commit -m "feat: create pdq:file-processor subagent skeleton"
 ## Task 4: Implement File Processor Workflow
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-file-processor/SKILL.md`
+- Modify: `.claude/skills/pdq-file-processor/SKILL.md`
 
 - [ ] **Step 1: Add analysis phase**
 
@@ -423,7 +423,7 @@ C) Uncertain - ask user later
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-file-processor
+cd .claude/skills/pdq-file-processor
 git add SKILL.md
 git commit -m "feat: implement file processor workflow and analysis logic"
 ```
@@ -433,7 +433,7 @@ git commit -m "feat: implement file processor workflow and analysis logic"
 ## Task 5: Add Note Creation Logic to Main Skill
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Add note creation function**
 
@@ -469,7 +469,7 @@ When proposal includes "New Note" update:
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: add note creation logic for new notes"
 ```
@@ -479,7 +479,7 @@ git commit -m "feat: add note creation logic for new notes"
 ## Task 6: Add Note Enrichment Logic to Main Skill
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Add enrichment function**
 
@@ -508,7 +508,7 @@ When proposal includes "Enrich Existing" update:
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: add note enrichment logic for existing notes"
 ```
@@ -518,7 +518,7 @@ git commit -m "feat: add note enrichment logic for existing notes"
 ## Task 7: Add Content Reclassification Logic to Main Skill
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Add reclassification function**
 
@@ -552,7 +552,7 @@ When proposal includes "Reclassify" update:
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: add content reclassification logic"
 ```
@@ -562,7 +562,7 @@ git commit -m "feat: add content reclassification logic"
 ## Task 8: Add Index Update Logic to Main Skill
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Add index update function**
 
@@ -610,7 +610,7 @@ After creating/enriching any note, update the `_index.md` file in the target dir
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: add index update logic for all categories"
 ```
@@ -620,7 +620,7 @@ git commit -m "feat: add index update logic for all categories"
 ## Task 9: Add Timeline Entry Logic to Main Skill
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Add timeline function**
 
@@ -666,7 +666,7 @@ Notes have append-only Timeline section at bottom:
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: add timeline entry creation logic"
 ```
@@ -676,7 +676,7 @@ git commit -m "feat: add timeline entry creation logic"
 ## Task 10: Add Source File Movement Logic to Main Skill
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Add file movement function**
 
@@ -722,7 +722,7 @@ ls -la "20 Projects/Work/.raw/meeting-2026-04-26.md"
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: add source file archival logic to .raw/ directories"
 ```
@@ -732,7 +732,7 @@ git commit -m "feat: add source file archival logic to .raw/ directories"
 ## Task 11: Add Backlink Logic to Main Skill
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Add backlink function**
 
@@ -777,7 +777,7 @@ Every created or enriched note includes an Obsidian-style backlink to the source
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: add backlink creation logic for source preservation"
 ```
@@ -787,7 +787,7 @@ git commit -m "feat: add backlink creation logic for source preservation"
 ## Task 12: Add Disambiguation Handling to Main Skill
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Add disambiguation function**
 
@@ -871,7 +871,7 @@ Select (A/B/C): [user selects A]
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: add disambiguation and decision handling logic"
 ```
@@ -881,7 +881,7 @@ git commit -m "feat: add disambiguation and decision handling logic"
 ## Task 13: Add Error Handling to Main Skill
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Add error handling section**
 
@@ -936,7 +936,7 @@ Handle common errors gracefully without corrupting files.
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: add comprehensive error handling"
 ```
@@ -946,7 +946,7 @@ git commit -m "feat: add comprehensive error handling"
 ## Task 14: Add Completion & Summary Logic to Main Skill
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
 
 - [ ] **Step 1: Add completion section**
 
@@ -1011,7 +1011,7 @@ Inbox files have been moved to `.raw/` directories at their target locations.
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "feat: add completion summary and reporting logic"
 ```
@@ -1021,15 +1021,15 @@ git commit -m "feat: add completion summary and reporting logic"
 ## Task 15: Add Testing & Validation Scenarios
 
 **Files:**
-- Create: `~/.claude/plugins/user/pdq-ingest-notes/TEST.md`
+- Create: `.claude/skills/pdq-ingest-notes/TEST.md`
 
 - [ ] **Step 1: Create test scenarios document**
 
 ```bash
-mkdir -p ~/.claude/plugins/user/pdq-ingest-notes/tests
+mkdir -p .claude/skills/pdq-ingest-notes/tests
 ```
 
-Create `~/.claude/plugins/user/pdq-ingest-notes/TEST.md`:
+Create `.claude/skills/pdq-ingest-notes/TEST.md`:
 
 ```markdown
 # PDQ Ingest - Testing & Validation
@@ -1198,7 +1198,7 @@ Create `~/.claude/plugins/user/pdq-ingest-notes/TEST.md`:
 - [ ] **Step 2: Commit**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add TEST.md
 git commit -m "docs: add comprehensive test scenarios and validation checklist"
 ```
@@ -1208,8 +1208,8 @@ git commit -m "docs: add comprehensive test scenarios and validation checklist"
 ## Task 16: Create Complete Skill Documentation
 
 **Files:**
-- Modify: `~/.claude/plugins/user/pdq-ingest-notes/SKILL.md`
-- Modify: `~/.claude/plugins/user/pdq-file-processor/SKILL.md`
+- Modify: `.claude/skills/pdq-ingest-notes/SKILL.md`
+- Modify: `.claude/skills/pdq-file-processor/SKILL.md`
 
 - [ ] **Step 1: Add README/Overview section to main skill**
 
@@ -1310,11 +1310,11 @@ Called by `/pdq:ingest-notes` main skill for each inbox file
 - [ ] **Step 3: Commit both**
 
 ```bash
-cd ~/.claude/plugins/user/pdq-ingest-notes
+cd .claude/skills/pdq-ingest-notes
 git add SKILL.md
 git commit -m "docs: add comprehensive skill documentation and quick reference"
 
-cd ~/.claude/plugins/user/pdq-file-processor
+cd .claude/skills/pdq-file-processor
 git add SKILL.md
 git commit -m "docs: add subagent documentation and quick reference"
 ```
