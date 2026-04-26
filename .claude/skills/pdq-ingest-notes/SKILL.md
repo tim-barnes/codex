@@ -75,6 +75,31 @@ For each inbox file in order:
   - Reclassifications: [list]
 - Reminder: "Changes not committed to git — review and commit manually"
 
+## Note Creation (New Notes)
+
+When proposal includes "New Note" update:
+
+1. **Load template** from `zy Templates/[template-name].md`
+2. **Fill YAML frontmatter:**
+   - type: [from proposal]
+   - status: nascent (for ideas) / active (for projects) / [appropriate]
+   - tags: [extract from inbox file content]
+   - created: [today's date YYYY-MM-DD]
+   - last_reviewed: [today's date]
+3. **Populate content sections:**
+   - Concept: [2-3 sentences from inbox file]
+   - Problem It Solves / Description: [relevant content]
+   - Potential Impact / Goals: [from inbox analysis]
+   - Key Assumptions: [identify any assumptions in content]
+   - Related Ideas/Projects/Entities: [link to existing notes if mentioned]
+   - Rough Approach / Details: [any implementation suggestions from file]
+4. **Add timeline entry:**
+   - Format: `YYYY-MM-DD | [[source-filename]] — Ingested from inbox`
+5. **Save to target location:**
+   - Path: [from proposal target]
+   - Filename: [from proposal, ensure .md extension]
+6. **Create `.raw/` directory if needed** (see Task 10)
+
 ## Checklist
 
 - [ ] Initialize phase complete
