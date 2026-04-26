@@ -118,6 +118,136 @@ When proposal includes "Enrich Existing" update:
 6. **Save modified note**
 7. **Add backlink** (see Task 11)
 
+## Content Reclassification (Moving Content)
+
+When proposal includes "Reclassify" update:
+
+1. **Identify source location** from proposal (where content currently is)
+2. **Identify destination location** from proposal (where it should move to)
+3. **Load source note**
+4. **Determine content to move:**
+   - For Idea → Project: move entire note, keep source as archived
+   - For Someday/Maybe → Active: update status field, keep in same directory
+   - For loose concept → formal Domain: create new Domain note with content, reference original
+5. **Create/update destination:**
+   - If moving entire note: copy to destination path
+   - If updating status: modify status field in YAML frontmatter
+   - If creating new: use appropriate template
+6. **Update Timeline:**
+   - Add entry showing reclassification: `YYYY-MM-DD | [[source-filename]] — Reclassified from [old location]`
+7. **Update source index** (`_index.md` at source location) — remove entry
+8. **Update destination index** (`_index.md` at destination) — add entry
+9. **Preserve or archive source:**
+   - If entire move: move source to `.raw/` at destination
+   - If status change: update source note
+
+## Index Updates
+
+After creating/enriching any note, update the `_index.md` file in the target directory.
+
+**For Ideas and Projects (Table Format):**
+
+1. Load `[category]/_index.md` (e.g., `10 Ideas/Work/_index.md`)
+2. Current table format:
+   ```
+   | Idea | Status | Domain | Updated |
+   |------|--------|--------|---------|
+   | [[idea-name]] | status | domain-tag | YYYY-MM-DD |
+   ```
+3. **For new note:** Add row with:
+   - Name: `[[filename-without-extension]]` (wiki-link)
+   - Status: [from YAML frontmatter]
+   - Domain: [from tags or project area]
+   - Updated: [today's date]
+4. **For enriched note:** Update the "Updated" column to today's date
+5. Save `_index.md`
+
+**For Domains, Entities, Wiki (Link Format):**
+
+1. Load `[category]/_index.md` (e.g., `30 Domains/_index.md`)
+2. Current format (varies by category):
+   - Domains: List under subcategory with links `[[domain-name]]`
+   - Entities: List of links `[[person-name]]`, `[[team-name]]`
+   - Wiki: Organized by topic with links
+3. **For new note:** Add link in appropriate section: `[[filename-without-extension]]`
+4. **For enriched note:** No change needed
+5. Save `_index.md`
+
+**Format Convention:**
+- Use Obsidian wiki-links: `[[filename]]` (without .md extension)
+- Maintain alphabetical order within sections
+- Keep existing spacing and structure
+
+## Timeline Entry Creation
+
+Every updated or created note gets a timeline entry.
+
+**Timeline Format:**
+
+Notes have append-only Timeline section at bottom:
+
+```markdown
+## Timeline
+
+2026-04-20 | self-described — Idea conception
+2026-04-25 | [[meeting-2026-04-25]] — Matured thinking
+```
+
+**Adding Timeline Entry:**
+
+1. Locate Timeline section in target note (usually at bottom)
+2. If Timeline section doesn't exist: create it
+3. Append new entry with format:
+   - Date: `YYYY-MM-DD` (today)
+   - Source: `[[source-filename]]` (inbox file without .md extension)
+   - Description: [brief description of update type]
+4. Examples:
+   - New note: `2026-04-26 | [[meeting-2026-04-26]] — Ingested from inbox`
+   - Enriched: `2026-04-26 | [[working-notes-2026-04-26]] — New insight on permission model`
+   - Reclassified: `2026-04-26 | [[proposal-2026-04-26]] — Reclassified from Ideas to Projects`
+
+**Formatting Rules:**
+- Keep entries in chronological order (newest at bottom)
+- Maintain consistent spacing (one blank line before Timeline section)
+- Use exact date format YYYY-MM-DD
+- Use wiki-links for source filenames
+- Keep description concise (one line)
+
+## Source File Archival
+
+After all updates are complete, move the original inbox file to `.raw/` at the target location.
+
+**Process:**
+
+1. **Create `.raw/` directory** if it doesn't exist:
+   - At target note location: `[category]/[subcategory]/.raw/`
+   - Example: `10 Ideas/Work/.raw/` or `20 Projects/Personal/.raw/`
+   - Run: `mkdir -p "[target-directory]/.raw/"`
+
+2. **Move inbox file:**
+   - Source: `00 Inbox/[filename].md`
+   - Destination: `[target-directory]/.raw/[filename].md`
+   - Preserve filename exactly
+   - Run: `mv 00\ Inbox/[filename].md [target-directory]/.raw/[filename].md`
+
+3. **Verify move:**
+   - Source file removed from inbox
+   - File exists in `.raw/` directory
+   - File integrity preserved (use `wc -l` to verify line count matches)
+
+4. **Add backlink** (see Task 11)
+
+**Example:**
+
+```bash
+# Process meeting-2026-04-26.md about new project
+mkdir -p "20 Projects/Work/.raw/"
+mv "00 Inbox/meeting-2026-04-26.md" "20 Projects/Work/.raw/meeting-2026-04-26.md"
+
+# Verify
+ls -la "20 Projects/Work/.raw/meeting-2026-04-26.md"
+```
+
 ## Checklist
 
 - [ ] Initialize phase complete
