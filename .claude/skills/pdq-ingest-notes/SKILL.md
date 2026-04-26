@@ -100,6 +100,24 @@ When proposal includes "New Note" update:
    - Filename: [from proposal, ensure .md extension]
 6. **Create `.raw/` directory if needed** (see Task 10)
 
+## Note Enrichment (Existing Notes)
+
+When proposal includes "Enrich Existing" update:
+
+1. **Load target note** from [proposal target path]
+2. **Identify content sections** from proposal (e.g., Key Assumptions, Assessment, Related Ideas)
+3. **Extract relevant content** from inbox file
+4. **Append to target sections:**
+   - If section exists: add new content after existing content
+   - If section doesn't exist: create section with content
+   - Preserve section formatting and structure
+5. **Add timeline entry:**
+   - Position: append to bottom of Timeline section
+   - Format: `YYYY-MM-DD | [[source-filename]] — [brief description of update]`
+   - Example: `2026-04-26 | [[meeting-2026-04-26]] — New insight on permission model from meeting discussion`
+6. **Save modified note**
+7. **Add backlink** (see Task 11)
+
 ## Checklist
 
 - [ ] Initialize phase complete
