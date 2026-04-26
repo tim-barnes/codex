@@ -1,0 +1,7 @@
+{
+  "name": "pdq-skills",
+  "version": "1.0.0",
+  "description": "PDQ — Personal Data Quarters: a knowledge base system with Claude skills for inbox processing",
+  "keywords": ["pdq", "claude", "skills", "knowledge-base", "obsidian"],
+  "license": "MIT"
+}
