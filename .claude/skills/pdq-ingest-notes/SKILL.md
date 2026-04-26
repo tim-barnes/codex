@@ -248,6 +248,211 @@ mv "00 Inbox/meeting-2026-04-26.md" "20 Projects/Work/.raw/meeting-2026-04-26.md
 ls -la "20 Projects/Work/.raw/meeting-2026-04-26.md"
 ```
 
+## Backlink Creation
+
+Every created or enriched note includes an Obsidian-style backlink to the source file in `.raw/`.
+
+**Backlink Format:**
+
+- Format: `[[filename-without-extension]]` (Obsidian wiki-link)
+- Pointing to file in relative path `.raw/filename`
+
+**Placement:**
+
+**For New Notes:**
+- Add to Timeline entry format (already includes backlink)
+- Timeline: `2026-04-26 | [[source-filename]] — Ingested from inbox`
+
+**For Enriched Notes:**
+- Add to new Timeline entry (already includes backlink)
+- Timeline: `2026-04-26 | [[source-filename]] — New insight from meeting`
+
+**For Section Content:**
+- If enriching a specific section (e.g., Key Assumptions), you may add inline backlink
+- Example in Assessment section: "Based on discussion in [[meeting-2026-04-26]]"
+
+**Verification:**
+- Backlinks in Timeline entries point to correct `.raw/` location
+- Source files in `.raw/` are accessible from target note directory
+- Obsidian can resolve links (test by clicking in Obsidian)
+
+**Note on Relative Paths:**
+- Timeline and inline backlinks work because `.raw/` is a sibling directory
+- From `10 Ideas/Work/idea-name.md`:
+  - Link to `.raw/meeting-note.md` as: `[[meeting-note]]` (Obsidian resolves automatically)
+  - Or explicit: `.raw/meeting-note`
+
+## Disambiguation & User Decision Handling
+
+When File Processor identifies ambiguity, main skill asks user and records selection.
+
+**Process:**
+
+1. **Receive proposal** from File Processor with `Disambiguation Questions` section
+2. **For each question:**
+   - Present question text to user
+   - Show all options (A, B, C, etc.)
+   - Wait for user selection
+   - Record selection in decision map: `{question_id: selected_option}`
+3. **Apply selections** to update proposal:
+   - Modify target paths based on selections
+   - Adjust content based on entity resolutions
+   - Finalize merge vs. separate decisions
+4. **Proceed with execution** using finalized proposal
+
+**Example Disambiguation Question:**
+
+```
+This note mentions "distributed systems." Which is primary?
+
+A) Existing Domain "Systems/Architecture"
+B) Existing Domain "Technical/Performance"
+C) Create new Domain "Systems/Distributed"
+
+Select (A/B/C): [user selects B]
+```
+
+**Decision Recording:**
+- Store in memory/context: "Question 1: User selected B → target is Domains/Technical/Performance"
+- Apply to proposal before execution
+- Use finalized proposal for all update operations
+
+**Conflict Resolution Questions:**
+
+**Example File Conflict:**
+```
+Target file already exists: "20 Projects/Work/auth-system.md"
+
+A) Merge content into existing file
+B) Create variant filename "auth-system-2.md"
+C) Choose different target
+D) Cancel this update
+
+Select (A/B/C/D): [user selects A]
+```
+
+**Handling Merge Decision:**
+- If user selects "Merge": enrich existing file (use Enrichment logic from Task 6)
+- If user selects "Variant": create new file with variant name (use Creation logic with new filename)
+- If user selects "Different": ask where to file content (another disambiguation)
+- If user selects "Cancel": skip this update, continue to next file
+
+**Ambiguous Content Questions:**
+
+**Example Ambiguous Content:**
+```
+This appears to be scratch notes without clear subject. How should we proceed?
+
+A) Delete from inbox (content not actionable)
+B) Archive to .raw/ without creating a note
+C) I'll manually specify what to do (cancel for now)
+
+Select (A/B/C): [user selects A]
+```
+
+**Handling Ambiguous Content:**
+- Delete: remove from inbox, no note created
+- Archive: move to `.raw/` at inbox level, no note created
+- Cancel: skip update, continue to next file
+
+## Error Handling
+
+Handle common errors gracefully without corrupting files.
+
+**File Not Found:**
+- If target note for enrichment doesn't exist at proposed path
+- Action: Ask user "Target file not found. Create from template? Or choose different target?"
+- Options: Create new, Choose different target, Cancel
+- Continue or skip based on selection
+
+**Missing Template:**
+- If skill needs to create new note but template file doesn't exist
+- Action: Halt and report "Template zy Templates/[template-name].md not found"
+- User must add template before retrying
+
+**Directory Creation Failed:**
+- If `.raw/` directory cannot be created
+- Action: Report error with filesystem error details
+- Skip file movement, preserve inbox file
+- Ask user: "Continue to next file or stop?"
+
+**Index Update Failed:**
+- If `_index.md` cannot be read or written
+- Action: Halt with error "Failed to update [path]/_index.md"
+- Preserve all other changes (note files remain created/modified)
+- Ask user: "Manually update index and retry, or continue?"
+
+**No Write Permission:**
+- If target directory is read-only or no write permission
+- Action: Report error with path and permission issue
+- Skip this update
+- Continue to next file
+
+**File Conflict - Merge Failed:**
+- If user selects merge but content merging causes issues (duplicate sections, etc.)
+- Action: Report "Cannot auto-merge [file]. Manual merge required."
+- Keep both versions separate (inbox file and target file untouched)
+- Ask user to manually review and merge
+
+**Graceful Degradation:**
+- Always preserve original inbox files until successfully moved
+- Never delete or modify inbox file unless fully confirmed moved to `.raw/`
+- If any update step fails after file move, report error clearly so user can manually fix
+
+## Completion & Summary
+
+After all files processed, provide clear summary to user.
+
+**Summary Report Format:**
+
+```
+## Ingest Complete
+
+**Files processed:** [N]
+
+**New Notes Created:**
+- [[idea-name]]: 10 Ideas/Work/idea-name.md
+- [[project-name]]: 20 Projects/Personal/project-name.md
+- [[domain-name]]: 30 Domains/Technical/domain-name.md
+[etc.]
+
+**Existing Notes Enriched:**
+- [[project-name]]: Updated with new milestones from [source]
+- [[domain-name]]: Timeline entry added about [topic]
+[etc.]
+
+**Reclassifications:**
+- [[idea-name]]: Ideas/Work → Projects/Work (now active)
+[etc.]
+
+**Skipped/Errored:**
+- [filename]: Reason (file not processed)
+[if any]
+
+---
+
+Inbox files have been moved to `.raw/` directories at their target locations.
+
+**Next steps:**
+- Review changes in Obsidian
+- Verify backlinks and cross-references
+- Commit changes to git: `git add -A && git commit -m "ingest: [summary of changes]"`
+```
+
+**Tracking for Summary:**
+- Keep running list of:
+  - Files processed successfully
+  - New notes created (with paths)
+  - Existing notes enriched (with paths)
+  - Reclassifications made (from → to)
+  - Files skipped/errored (with reasons)
+- Display after all files complete
+
+**Final Confirmation:**
+- Ask user: "Proceed with commit? (yes/no/later)"
+- If yes: user commits manually (skill doesn't commit per spec)
+- If no/later: user will commit manually
+
 ## Checklist
 
 - [ ] Initialize phase complete
