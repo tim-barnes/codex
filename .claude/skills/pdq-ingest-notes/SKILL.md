@@ -508,3 +508,43 @@ Summary:
 
 Changes are not committed to git. Review and commit manually.
 ```
+
+---
+
+## Quick Reference
+
+### When to Use
+
+- You have files in `00 Inbox/` waiting to be processed
+- You want to intelligently route content to Ideas, Projects, Domains, Entities, or Wiki
+- You prefer interactive decisions on ambiguous routing
+
+### What It Does
+
+1. Lists all inbox files
+2. For each file: analyzes and proposes updates
+3. Asks you to choose when routing is ambiguous
+4. Creates/enriches/reclassifies notes
+5. Archives source files with backlinks
+6. Updates indexes and timelines
+
+### Files It Affects
+
+- Creates: new notes in `10 Ideas/`, `20 Projects/`, `30 Domains/`, `40 Entities/`, `50 Wiki/`
+- Modifies: existing notes (adds content, timeline entries)
+- Moves: inbox files to `.raw/` subdirectories
+- Updates: `_index.md` files in target directories
+
+### Workflow Duration
+
+- 2-5 minutes per file depending on ambiguity
+- Faster for clear-cut files, slower for complex content requiring multiple decisions
+
+### Success Indicators
+
+- All inbox files processed
+- Source files archived in `.raw/`
+- New notes follow templates with complete frontmatter
+- Timeline entries reference source files
+- Indexes updated accurately
+- User satisfied with routing decisions
