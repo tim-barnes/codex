@@ -34,13 +34,13 @@ Each content type has templates in `zy Templates/` with YAML frontmatter, compil
 
 ### Components
 
-**1. Main Skill (`/pdq:ingest`)**
+**1. Main Skill (`/pdq:ingest-notes`)**
 - Orchestrates the full batch processing workflow
 - Manages file iteration, user prompts, and execution
 - Handles disambiguation questions and user selections
 - Coordinates file movement and index updates
 
-**2. File Processor Subagent**
+**2. File Processor Subagent (`/pdq:file-processor`)**
 - Analyzes a single inbox file
 - Proposes updates (create/enrich/reclassify) with target locations
 - Identifies disambiguation points (entity resolution, category ambiguity, merge decisions)
