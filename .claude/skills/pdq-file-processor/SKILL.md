@@ -22,6 +22,50 @@ Structured proposal with:
 - Confidence assessment
 - Disambiguation questions with options
 
+---
+
+## Quick Reference
+
+### Input
+
+Single markdown file from inbox with content like:
+- Meeting notes
+- Working notes/thoughts
+- External content summaries
+
+### Output
+
+Structured proposal including:
+- What updates are needed (new note / enrich / reclassify)
+- Where updates should go (target paths)
+- Any ambiguities that need user decisions
+- Suggested content for new notes
+
+### What This Subagent Does
+
+1. Analyzes inbox file content
+2. Determines update type(s)
+3. Proposes routing with confidence
+4. Identifies decisions that need user judgment
+5. Returns structured proposal
+
+### Does NOT Do
+
+- Execute any file operations
+- Make final routing decisions on ambiguous content
+- Create or modify any files
+- Commit changes
+
+### Confidence Levels
+
+- **High**: Content clearly matches specific target, no ambiguity
+- **Medium**: Content matches target but could have multiple interpretations
+- **Low**: Content is ambiguous or could fit multiple targets
+
+### When Used
+
+Called by `/pdq:ingest-notes` main skill for each inbox file
+
 ## Workflow
 
 ### Phase 1: Content Analysis
